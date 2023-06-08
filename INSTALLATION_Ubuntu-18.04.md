@@ -643,7 +643,7 @@ Then change Connector port and redirect port which is seen as follows:
 
 ```
 
-update port="8000" and redirectPort="8443" to other ports that are free making sure they do not match ports used by tomcat-openmrs. You can verify ports used in tomcat-openmrs by running the following command:
+update port="8000" and redirectPort="8443" to other ports numbers such as 8081 and 84444 respectively. These port numbers should be free and ,make sure they do not match ports used by tomcat-openmrs. You can verify ports used in tomcat-openmrs by running the following command:
 ```
 nano /home/openmrs/tomcat-openmrs/conf/server.xml
 ```
