@@ -320,7 +320,13 @@ Open your web browser and access the OpenMRS web installation wizard using the U
 ![First page, OpenMRS installation](Images/OpenMRS/successfully-installed-openmrs.png)
 
 ### Install OpenMRS Modules
-Copy the OpenMRS modules from OpenMRS Modules directory, then add them into ```/home/openmrs/.OpenMRS/modules``` then restart OpenMRS server using the following command:
+Copy the OpenMRS modules from ```OpenMRS Modules directory``` in this repository, then add them into ```/home/openmrs/.OpenMRS/modules``` . Use this command:
+```
+cp OpenMRS\ Modules/* /home/openmrs/.OpenMRS/modules
+
+```
+
+Then restart OpenMRS server using the following command:
 ```
 systemctl restart tomcat-openmrs
 ```
@@ -331,6 +337,8 @@ Get back to the browser and try to access openmrs again with new UI.
 
 ### After login with default credentials
 ![First page, OpenMRS installation](Images/OpenMRS/After-modules-installation.png) 
+
+After this you are good with OpenMRS. Exit and move on with the next step.
 
 ## 4. POSTGRESQL INSTALLATION
 Install the Postgres package along with a -contrib package that adds some additional utilities and functionality:
@@ -624,7 +632,7 @@ Update the lines containing the following information.
 ```
 and change 8005 to shutdown port you want.
 
-Then change Connector tag
+Then change Connector port and redirect port which is seen as follows:
 
 ```
 <Connector port="8080" protocol="HTTP/1.1"
@@ -635,7 +643,7 @@ Then change Connector tag
 
 ```
 
-update port="8000" and redirectPort="8443" to other ports that do not match ports used in openmrs-tomcat which can be seen from running the following command:
+update port="8000" and redirectPort="8443" to other ports that are free making sure they do not match ports used by tomcat-openmrs. You can verify ports used in tomcat-openmrs by running the following command:
 ```
 nano /home/openmrs/tomcat-openmrs/conf/server.xml
 ```
