@@ -298,7 +298,7 @@ At this point, Tomcat is started and listens on port 8080.
 ### Install OpenMRS
 First, create a directory for OpenMRS and set proper ownership with the following command:
 ```
-mkdir /var/lib/OpenMRS
+mkdir /var/lib/OpenMRS![Tux, the Linux mascot](/assets/images/tux.png)
 chown -R openmrs:openmrs /var/lib/OpenMRS
 ```
 Next, download the latest version of OpenMRS using the following command:
@@ -315,7 +315,9 @@ Next, change the ownership of the openmrs.war file to tomcat:
 ```
 chown -R openmrs:openmrs /home/openmrs/tomcat-openmrs/webapps/openmrs.war
 ```
-Open your web browser and access the OpenMRS web installation wizard using the URL http://your-server-ip:8080/openmrs
+Open your web browser and access the OpenMRS web installation wizard using the URL http://your-server-ip:8080/openmrs and you will see something like:
+
+![First page, OpenMRS installation](Images/OpenMRS/successfully-installed-openmrs.png)
 
 ### Install OpenMRS Modules
 Copy the OpenMRS modules from OpenMRS Modules directory, then add them into ```/home/openmrs/.OpenMRS/modules``` then restart OpenMRS server using the following command:
@@ -323,6 +325,13 @@ Copy the OpenMRS modules from OpenMRS Modules directory, then add them into ```/
 systemctl restart tomcat-openmrs
 ```
 Get back to the browser and try to access openmrs again with new UI.
+
+### Legacy UI loaded
+![First page, OpenMRS installation](Images/OpenMRS/After-legacyUI-installation.png)
+
+### After login with default credentials
+![First page, OpenMRS installation](Images/OpenMRS/After-modules-installation.png) 
+
 ## 4. POSTGRESQL INSTALLATION
 Install the Postgres package along with a -contrib package that adds some additional utilities and functionality:
 ```
@@ -552,7 +561,7 @@ After confirming that you’re able to run commands in the Redis client after au
 quit
 ```
 
-## 6. INSTALL OpenSRP
+## 6. INSTALL OpenSRP Tomcat Server v9
 Creating a user and usergroup for Opensrp by typing the following:
 ```
 groupadd opensrp
@@ -762,7 +771,39 @@ Then update database configurations accordingly.
 ```
 Replace all <> and text inside with corrent values.
 
-Once that is done, use maven installed to build the project using the following command:
+Then make sure you are using ```JAVA 11``` at this point before starting to build the app. To do that  run the following command:
+```
+java -version
+```
+output should be:
+```
+openjdk version "11" 2018-09-25
+OpenJDK Runtime Environment 18.9 (build 11+28)
+OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
+```
+if its not in ```JAVA 11```. Run this command and select JAVA version 11 based on the index number in the list:
+```
+sudo update-alternatives --config java
+```
+
+This will show java versions installed and an asterisk to version being used such as follows: 
+```
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      auto mode
+* 1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      manual mode
+  2            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+
+```
+Choose the number based on ```JAVA 11``` then rerun 
+```
+java -version
+```
+to make sure it's in ```JAVA 11```. Once that is done, use maven installed to build the project using the following command:
 ```
 mvn clean install -Dmaven.test.skip=true
 ```
@@ -777,6 +818,9 @@ cp /target/opensrp.war /home/opensrp/opensrp-tomcat/webapp/
 After that wait for it to be reflected inside tomcat and open your browser and access it using  ```http://ip-address:port/opensrp```
 
 Once you see white screen with test **Welcome to OpenSRP**.
+
+### Successfully Installed OpenSRP
+![First page, OpenMRS installation](Images/OpenSRP/Successfully-Installed-OpenSRP.png)
 
 then you are ready to go for OpenSRP Client as the server is running.
 
