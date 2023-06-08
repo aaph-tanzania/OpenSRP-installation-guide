@@ -845,6 +845,8 @@ git checkout master-v1
 Import project inside android Studio. 
 Load project with gradle and then build it.
 
+**Note**: Make sure to build with ```java 1.8```
+
 App should be running in your emulator/physical phone.
 
 Thanks and happy coding
