@@ -780,3 +780,29 @@ Once you see white screen with test **Welcome to OpenSRP**.
 
 then you are ready to go for OpenSRP Client as the server is running.
 
+
+#  Installation of OpenSRP Client
+
+## Requirements
+- Android Studio
+- Java 11
+
+Clone projecy from the client repository using the following command:
+```
+git clone https://github.com/opensrp/opensrp-client-chw.git
+```
+
+After cloning the project into your computer. Checkout to the ```master-v1``` branch using the following command:
+
+```
+git checkout master-v1
+```
+
+Import project inside android Studio. 
+Load project with gradle and then build it.
+
+App should be running in your emulator/physical phone.
+
+Thanks and happy coding
+
+
