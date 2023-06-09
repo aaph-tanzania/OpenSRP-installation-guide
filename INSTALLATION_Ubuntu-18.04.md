@@ -632,7 +632,7 @@ Update the lines containing the following information.
 ```
 and change 8005 to shutdown port you want.
 
-Then change Connector port and redirect port which is seen as follows:
+Then update Connector tag, change port and redirect port values that will be seen as follows:
 
 ```
 <Connector port="8080" protocol="HTTP/1.1"
