@@ -837,7 +837,7 @@ then you are ready to go for OpenSRP Client as the server is running.
 
 ## Requirements
 - Android Studio
-- Java 11
+- Java 1.8
 
 Clone projecy from the client repository using the following command:
 ```
