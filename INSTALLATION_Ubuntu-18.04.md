@@ -212,21 +212,22 @@ cd /home/openmrs
 ### Install Tomcat
 Next, download the Tomcat 7 with the following command:
 ```
-wget
-https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.109/bin/apache-tomcat7.0.109.tar.gz
+wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.109/bin/apache-tomcat-7.0.109.tar.gz
+
 ```
 Next, create a directory for Tomcat and extract the downloaded file to
 tomcat-openmrs directory:
 ```
-mkdir /tomcat-openmrs
+mkdir tomcat-openmrs
 tar -xvzf apache-tomcat-7.0.109.tar.gz -C tomcat-openmrs/
 --strip-components=1
 ```
 Next, navigate to the tomcat-openmrs directory and set proper permission and
 ownership:
 ```
-cd tomcat-openmrs
 chgrp -R openmrs tomcat-openmrs
+
+cd tomcat-openmrs
 chmod -R g+r conf
 chmod g+x conf
 chown -R openmrs webapps/ work/ temp/ logs/
@@ -643,7 +644,7 @@ Then update Connector tag, change port and redirect port values that will be see
 
 ```
 
-update port="8000" and redirectPort="8443" to other ports numbers such as 8081 and 84444 respectively. These port numbers should be free and ,make sure they do not match ports used by tomcat-openmrs. You can verify ports used in tomcat-openmrs by running the following command:
+update port="8080" and redirectPort="8443" to other ports numbers such as 8081 and 84444 respectively. These port numbers should be free and ,make sure they do not match ports used by tomcat-openmrs. You can verify ports used in tomcat-openmrs by running the following command:
 ```
 nano /home/openmrs/tomcat-openmrs/conf/server.xml
 ```
